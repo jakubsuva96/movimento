@@ -1,7 +1,10 @@
 /* COLORS */
+$cervena: #FF3E3E;
+$tmavemodra: #1D3344;
 $colours:
 	"red" #FF3E3E,
-	"darkblue" #1D3344;
+	"darkblue" #1D3344,
+	"white" white;
 
 @each $i in $colours{
 .bg-#{nth($i, 1)} {
@@ -10,6 +13,27 @@ $colours:
 	.text-#{nth($i, 1)} {
 		color:nth($i, 2);
 	}
+}
+/* FONTS */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Thin.ttf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Light.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf");
+  font-weight: 400;
 }
 
 .logo {
@@ -21,7 +45,23 @@ $colours:
       filter: brightness(100%);
   }
 }
-
+.info-button {
+	margin-left: 5rem;
+	background: none;
+	border: solid $cervena 3px;
+	padding: 0.4rem 3rem;
+	border-radius: 5rem;
+	font-family: Roboto;
+	font-weight: 300;
+	font-size: 1.2rem;
+	transition: background 0.35s;
+	cursor: pointer;
+	&:hover {
+		background: $cervena;
+		text-decoration: none;
+		color: $tmavemodra;
+	}
+}
 body,
 html {
   width: 100%;
@@ -53,8 +93,32 @@ a:hover {
   color: #FF3E3E;
 }
 
-h1,
-h2,
+h1 {
+	font-family: Roboto;
+	font-weight: 100;
+	padding-left: 5rem;
+}
+h2 {
+	font-size: 6rem;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+.offer-box {
+	border: 5px solid $tmavemodra;
+	height: 20rem;
+	transition: background .35s;
+	cursor: pointer;
+	&:hover {
+		background: $tmavemodra;
+		color: $cervena;
+	}
+	&:hover > .icon {
+		fill: $cervena;
+	}
+}
+.icon {
+	width: 7rem;
+	fill: $tmavemodra;
+}
 h3,
 h4,
 h5,
@@ -63,7 +127,10 @@ h6 {
 }
 
 .bg-primary {
-  background-color: #FF3E3E !important;
+	background: #ff3e3e; /* Old browsers */
+background: -moz-linear-gradient(top, #ff3e3e 0%, #ff00b1 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #ff3e3e 0%,#ff00b1 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #ff3e3e 0%,#ff00b1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .bg-dark {
@@ -75,7 +142,7 @@ h6 {
 }
 
 section {
-  padding: 8rem 0;
+  padding: 4rem 0 4rem;
 }
 
 .section-heading {
